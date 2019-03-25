@@ -38,6 +38,6 @@ apps:
      - network-bind
      - physical-memory-control
 layout:
-  /var/run/:
-    type: tmpfs
+  /var/run/pigpio.pid:
+    bind-file: $SNAP_DATA/pigpio.pid
 
