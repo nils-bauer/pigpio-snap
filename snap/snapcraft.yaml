@@ -11,7 +11,7 @@ license: Unlicense
 architectures:
  - armhf
 grade: devel
-confinement: strict
+confinement: devmode
 
 parts:
   pigpio:
@@ -37,7 +37,7 @@ apps:
      - network
      - network-bind
      - physical-memory-control
-layout:
-  /run/pigpio.pid:
-    bind-file: $SNAP_DATA/pigpio.pid
+#layout:
+#  /run/pigpio.pid:
+#    bind-file: $SNAP_DATA/pigpio.pid
 
