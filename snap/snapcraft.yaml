@@ -1,5 +1,5 @@
 name: pigpio-nils
-base: core18 # the base snap is the execution environment for this snap
+base: core18
 version: '0.1' 
 summary: GPIO library
 description: |
@@ -16,8 +16,6 @@ confinement: strict
 parts:
   pigpio:
     plugin: make
-    # source-type: local
-    # source: PIGPIO
     source-type: git
     source: https://github.com/joan2937/pigpio.git
     build-packages:
@@ -40,6 +38,6 @@ apps:
      - network-bind
      - physical-memory-control
 layout:
-  /var/run:
+  /var/run/:
     type: tmpfs
 
