@@ -38,8 +38,6 @@ apps:
     plugs:
      - network
      - network-bind
-     - gpio
-     - gpio-memory-control
      - physical-memory-control
 layout:
   /var/run:
