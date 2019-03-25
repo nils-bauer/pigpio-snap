@@ -1,0 +1,40 @@
+#!/bin/sh -e
+
+# Config values
+dma_memory_allocation_mode="$(snapctl get dma-memory-allocation-mode)"
+gpio_sample_buffer_size="$(snapctl get gpio-sample-buffer-size)"
+library_internal_settings="$(snapctl get library-internal-settings)"
+primary_dma_channel="$(snapctl get primary-dma-channel)"
+secondary_dma_channel="$(snapctl get secondary-dma-channel)"
+disable_fifo_interface="$(snapctl get disable-fifo-interface)"
+
+disable_fifo_interface_arg="";
+if [ "$disable_fifo_interface" = "true" ]; then
+    disable_fifo_interface_arg="-f";
+fi
+
+disable_alerts="$(snapctl get disable-alerts)"
+disable_alerts_arg="";
+if [ "$disable_alerts" = "true" ]; then
+    disable_alerts_arg="-m";
+fi
+
+allowed_host="$(snapctl get allowed-host)"
+allowed_host_arg=""
+if [ ! -z "$allowed_host" -a "$allowed_host" != " " ]; then
+    allowed_host_arg="-n $allowed_host";
+fi
+
+
+port="$(snapctl get port)"
+sample_rate="$(snapctl get sample-rate)"
+
+gpio_update_mask="$(snapctl get gpio-update-mask)"
+gpio_update_mask_arg=""
+if [ ! -z "$gpio_update_mask" -a "$gpio_update_mask" != " " ]; then
+    gpio_update_mask_arg="-x $gpio_update_mask";
+fi
+
+$SNAP/usr/local/bin/pigpiod -g -a $dma_memory_allocation_mode -b $gpio_sample_buffer_size \
+	-c $library_internal_settings -d $primary_dma_channel -e $secondary_dma_channel \
+	$disable_fifo_interface_arg $disable_alerts_arg $allowed_host_arg -p $port $gpio_update_mask_arg

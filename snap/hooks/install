@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+# Initialize config
+snapctl set dma-memory-allocation-mode=0
+snapctl set gpio-sample-buffer-size=120
+snapctl set library-internal-settings=0
+snapctl set primary-dma-channel=14
+snapctl set secondary-dma-channel=6
+snapctl set disable-fifo-interface=false
+snapctl set disable-alerts=false
+snapctl set allowed-host=
+snapctl set port=8888
+snapctl set sample-rate=5
+snapctl set gpio-update-mask=
