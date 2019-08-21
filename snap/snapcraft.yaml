@@ -1,6 +1,6 @@
 name: pigpio-nils
 base: core18
-version: '0.1' 
+version: '71' 
 summary: GPIO library
 description: |
   pigpio is a library for the Raspberry which allows control of
@@ -11,7 +11,7 @@ license: Unlicense
 architectures:
  - armhf
 grade: devel
-confinement: devmode
+confinement: strict
 
 parts:
   pigpio:
