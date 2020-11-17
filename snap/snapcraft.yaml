@@ -1,5 +1,5 @@
 name: pigpio-nils
-base: core18
+base: core20
 version: '71' 
 summary: GPIO library
 description: |
