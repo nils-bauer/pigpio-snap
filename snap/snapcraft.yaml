@@ -36,3 +36,6 @@ apps:
     plugs:
      - network-bind
      - physical-memory-control
+layout:
+  /pigpio-pid/pigpio.pid:
+    bind-file: $SNAP_DATA/pigpio.pid
