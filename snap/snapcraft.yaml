@@ -34,7 +34,7 @@ apps:
     daemon: simple
     command: pigpiod_wrapper
     environment:
-      LD_LIBRARY_PATH: $SNAP/usr/local/lib:$LD_LIBRARY_PATH
+      LD_LIBRARY_PATH: ${SNAP}/usr/local/lib
     plugs:
      - network-bind
      - gpio
