@@ -37,5 +37,5 @@ apps:
      - network-bind
      - physical-memory-control
 layout:
-  /pigpio-pid/pigpio.pid:
+  /var/pigpio.pid:
     bind-file: $SNAP_DATA/pigpio.pid
