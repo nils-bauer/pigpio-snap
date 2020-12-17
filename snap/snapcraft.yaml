@@ -17,14 +17,12 @@ parts:
   pigpio:
     plugin: make
     source-type: git
-    source: https://github.com/joan2937/pigpio.git
+    source: https://github.com/nils-bauer/pigpio.git
     build-packages:
       - gcc
       - make
       - libc6
       - python3-distutils-extra
-    make-parameters:
-      - PI_LOCKFILE=/run/lock/snap.$SNAP_INSTANCE_NAME
   pigpiod-wrapper:
     plugin: dump
     source: .
@@ -37,4 +35,4 @@ apps:
       LD_LIBRARY_PATH: ${SNAP}/usr/local/lib
     plugs:
      - network-bind
-     - physical-memory-control
+     - gpio-memory-control
