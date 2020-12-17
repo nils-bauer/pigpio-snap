@@ -23,6 +23,8 @@ parts:
       - make
       - libc6
       - python3-distutils-extra
+    make-parameters:
+      - PI_LOCKFILE=/run/lock/snap.$SNAP_INSTANCE_NAME
   pigpiod-wrapper:
     plugin: dump
     source: .
@@ -34,10 +36,5 @@ apps:
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/local/lib:$LD_LIBRARY_PATH
     plugs:
-     - network
      - network-bind
-     - physical-memory-control
-#layout:
-#  /run/pigpio.pid:
-#    bind-file: $SNAP_DATA/pigpio.pid
-
+     - gpio
