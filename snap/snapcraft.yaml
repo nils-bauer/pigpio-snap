@@ -35,4 +35,4 @@ apps:
       LD_LIBRARY_PATH: ${SNAP}/usr/local/lib
     plugs:
      - network-bind
-     - gpio-memory-control
+     - physical-memory-control
